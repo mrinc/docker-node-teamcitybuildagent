@@ -1,6 +1,6 @@
 FROM jetbrains/teamcity-agent
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN apt-get install -y nodejs
+RUN apt-get install -y nodejs bzip2
 RUN npm install -g yarn@1.5.1
-RUN yarn global add phantomjs-prebuilt@2.1.16
+RUN npm install -y phantomjs-prebuilt@2.1.16
