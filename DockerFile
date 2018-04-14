@@ -1,6 +1,6 @@
-FROM jetbrains/teamcity-agent
+FROM jetbrains/teamcity-minimal-agent
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN apt-get install -y nodejs bzip2
-RUN npm install -g yarn@1.5.1
-RUN npm install -y phantomjs-prebuilt@2.1.16
+RUN apt-get update -y && apt-get install -y sudo git bzip2 docker-ce
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+RUN apt-get update -y && apt-get install -y nodejs
+RUN sudo npm install -g phantomjs-prebuilt@2.1.16 yarn@1.5.1 --ignore-scripts
